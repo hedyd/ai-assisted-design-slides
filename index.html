@@ -217,33 +217,27 @@
         <p class="lead">You give Claude a task, come back to a pull request, approve it, and your site updates.</p>
 
         <pre class="mermaid" style="margin-top: 2.5rem; background: none;">
-graph TD
+graph LR
     subgraph you ["You"]
         direction TB
-        A["Give Claude a task"]
-        E["You review"]
-        F["Approve + merge"]
+        A["Give Claude a task"] ~~~ E["You review"]
+        E --> F["Approve + merge"]
     end
 
     subgraph claude ["Claude Code Web"]
         direction TB
-        B["Creates feature branch\ne.g. new-homepage"]
-        C["Works in the cloud\nedits files, runs checks"]
-        D["Opens a pull request\nshows you every change"]
-        G["Claude never touches main\nyou always approve first"]
+        B["Creates feature branch\ne.g. new-homepage"] --> C["Works in the cloud\nedits files, runs checks"]
+        C --> D["Opens a pull request\nshows you every change"]
+        D ~~~ G["Claude never touches main\nyou always approve first"]
     end
 
     subgraph site ["Your live site"]
         direction TB
-        M["main\nyour live site"]
-        H["main updated\nVercel rebuilds"]
+        M["main\nyour live site"] ~~~ H["main updated\nVercel rebuilds"]
     end
 
     A --> B
-    B --> C
-    C --> D
     D --> E
-    E --> F
     F --> G
     G --> H
     M -.-> H
