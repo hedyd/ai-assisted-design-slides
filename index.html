@@ -203,38 +203,87 @@
         <h1>Working safely<br>with Claude.</h1>
         <p class="lead">You give Claude a task, come back to a pull request, approve it, and your site updates.</p>
 
-        <div class="branches-diagram">
-
-          <!-- Column: You -->
-          <div class="branch-col">
-            <div class="branch-col__header">You</div>
-            <div class="branch-step branch-step--first">Give Claude a task</div>
-            <div class="branch-spacer"></div>
-            <div class="branch-spacer"></div>
-            <div class="branch-step branch-step--action">Review pull request</div>
-            <div class="branch-step branch-step--accent">Approve &amp; merge</div>
+        <div class="flow-chart">
+          <!-- Column headers -->
+          <div class="fc-headers">
+            <span class="fc-header">You</span>
+            <span class="fc-header fc-header--mid">Claude Code Web</span>
+            <span class="fc-header">Your live site</span>
           </div>
 
-          <!-- Column: Claude Code Web -->
-          <div class="branch-col">
-            <div class="branch-col__header branch-col__header--mid">Claude Code Web</div>
-            <div class="branch-spacer"></div>
-            <div class="branch-step branch-step--mid">Creates feature branch</div>
-            <div class="branch-step branch-step--mid">Works in the cloud<br><span class="branch-note">you can close your laptop</span></div>
-            <div class="branch-step branch-step--mid">Opens pull request</div>
-            <div class="branch-spacer"></div>
+          <!-- Row 1 -->
+          <div class="fc-row">
+            <div class="fc-cell">
+              <div class="fc-node fc-node--you">Give Claude a task</div>
+              <span class="fc-arrow-h">→</span>
+            </div>
+            <div class="fc-cell">
+              <div class="fc-node fc-node--claude">Creates feature branch<span class="fc-sub">e.g. new-homepage</span></div>
+            </div>
+            <div class="fc-cell">
+              <div class="fc-node fc-node--site">main<span class="fc-sub">your live site</span></div>
+            </div>
           </div>
 
-          <!-- Column: Your live site -->
-          <div class="branch-col">
-            <div class="branch-col__header">Your Live Site</div>
-            <div class="branch-spacer"></div>
-            <div class="branch-spacer"></div>
-            <div class="branch-spacer"></div>
-            <div class="branch-spacer"></div>
-            <div class="branch-step branch-step--accent">main updates →<br>Vercel rebuilds</div>
+          <!-- Down arrow -->
+          <div class="fc-row fc-row--arrows">
+            <div class="fc-cell"></div>
+            <div class="fc-cell"><span class="fc-arrow-v">↓</span></div>
+            <div class="fc-cell"><span class="fc-arrow-v fc-arrow-v--dashed">⋮</span></div>
           </div>
 
+          <!-- Row 2 -->
+          <div class="fc-row">
+            <div class="fc-cell">
+              <div class="fc-node fc-node--you">Close your laptop</div>
+              <span class="fc-arrow-h">→</span>
+            </div>
+            <div class="fc-cell">
+              <div class="fc-node fc-node--claude">Works in the cloud<span class="fc-sub">edits files, runs checks</span></div>
+            </div>
+            <div class="fc-cell"></div>
+          </div>
+
+          <!-- Down arrow -->
+          <div class="fc-row fc-row--arrows">
+            <div class="fc-cell"></div>
+            <div class="fc-cell"><span class="fc-arrow-v">↓</span></div>
+            <div class="fc-cell"><span class="fc-arrow-v fc-arrow-v--dashed">⋮</span></div>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="fc-row">
+            <div class="fc-cell">
+              <div class="fc-node fc-node--you">You review</div>
+              <span class="fc-arrow-h fc-arrow-h--left">←</span>
+            </div>
+            <div class="fc-cell">
+              <div class="fc-node fc-node--claude">Opens a pull request<span class="fc-sub">shows you every change</span></div>
+            </div>
+            <div class="fc-cell"></div>
+          </div>
+
+          <!-- Down arrow -->
+          <div class="fc-row fc-row--arrows">
+            <div class="fc-cell"><span class="fc-arrow-v">↓</span></div>
+            <div class="fc-cell"><span class="fc-arrow-v">↓</span></div>
+            <div class="fc-cell"><span class="fc-arrow-v fc-arrow-v--dashed">⋮</span></div>
+          </div>
+
+          <!-- Row 4 — merge -->
+          <div class="fc-row">
+            <div class="fc-cell">
+              <div class="fc-node fc-node--merge">Approve + merge</div>
+              <span class="fc-arrow-h">→</span>
+            </div>
+            <div class="fc-cell">
+              <div class="fc-node fc-node--merge-info">Claude never touches main<span class="fc-sub">you always approve first</span></div>
+              <span class="fc-arrow-h">→</span>
+            </div>
+            <div class="fc-cell">
+              <div class="fc-node fc-node--merge">main updated<span class="fc-sub">Vercel rebuilds</span></div>
+            </div>
+          </div>
         </div>
 
         <p class="alternatives" style="margin-top: 1.5rem;">
