@@ -8,22 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'base',
-      themeVariables: {
-        fontFamily: '"DM Sans", system-ui, sans-serif',
-        fontSize: '14px',
-        lineColor: '#D9D5CE',
-        primaryColor: '#E8E6F8',
-        primaryTextColor: '#1A1918',
-        primaryBorderColor: '#C9C5F0'
-      },
-      flowchart: { curve: 'basis', padding: 16 }
-    });
-  </script>
 </head>
 <body>
 
@@ -219,27 +203,84 @@
         <h1>Working safely<br>with Claude.</h1>
         <p class="lead">You give Claude a task, come back to a pull request, approve it, and your site updates.</p>
 
-        <div class="mermaid" style="margin-top: 2.5rem;">
-graph TD
-    A["🧑 Give Claude a task"] --> B["Creates feature branch<br/><small>e.g. new-homepage</small>"]
-    B --> C["Works in the cloud<br/><small>edits files, runs checks</small>"]
-    C --> D["Opens a pull request<br/><small>shows you every change</small>"]
-    D --> E["🧑 You review"]
-    E --> F["🧑 Approve + merge"]
-    F --> G["Claude never touches main<br/><small>you always approve first</small>"]
-    G --> H["✅ main updated<br/><small>Vercel rebuilds</small>"]
+        <div class="flow-chart" style="margin-top: 2.5rem;">
+          <!-- Column headers -->
+          <div class="fc-headers">
+            <span class="fc-header">You</span>
+            <span class="fc-header fc-header--mid">Claude Code Web</span>
+            <span class="fc-header">Your live site</span>
+          </div>
 
-    M["main<br/><small>your live site</small>"] -.-> H
+          <!-- Row 1 -->
+          <div class="fc-row">
+            <div class="fc-cell">
+              <div class="fc-node fc-node--you">Give Claude a task</div>
+              <span class="fc-arrow-h">→</span>
+            </div>
+            <div class="fc-cell">
+              <div class="fc-node fc-node--claude">Creates feature branch<span class="fc-sub">e.g. new-homepage</span></div>
+            </div>
+            <div class="fc-cell">
+              <div class="fc-node fc-node--site">main<span class="fc-sub">your live site</span></div>
+            </div>
+          </div>
 
-    style A fill:#F0EDE7,stroke:#D9D5CE,color:#1A1918
-    style E fill:#F0EDE7,stroke:#D9D5CE,color:#1A1918
-    style F fill:#E8F5E9,stroke:#81C784,color:#2E7D32
-    style B fill:#E8E6F8,stroke:#C9C5F0,color:#3B3980
-    style C fill:#E8E6F8,stroke:#C9C5F0,color:#3B3980
-    style D fill:#E8E6F8,stroke:#C9C5F0,color:#3B3980
-    style G fill:#FFF8E1,stroke:#FFE082,color:#6D5D00
-    style H fill:#E8F5E9,stroke:#81C784,color:#2E7D32
-    style M fill:#F0F7F0,stroke:#8CB88C,color:#3D6B3D
+          <!-- Down arrow -->
+          <div class="fc-row fc-row--arrows">
+            <div class="fc-cell"></div>
+            <div class="fc-cell"><span class="fc-arrow-v">↓</span></div>
+            <div class="fc-cell"><span class="fc-arrow-v fc-arrow-v--dashed">⋮</span></div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="fc-row">
+            <div class="fc-cell"></div>
+            <div class="fc-cell">
+              <div class="fc-node fc-node--claude">Works in the cloud<span class="fc-sub">edits files, runs checks</span></div>
+            </div>
+            <div class="fc-cell"></div>
+          </div>
+
+          <!-- Down arrow -->
+          <div class="fc-row fc-row--arrows">
+            <div class="fc-cell"></div>
+            <div class="fc-cell"><span class="fc-arrow-v">↓</span></div>
+            <div class="fc-cell"><span class="fc-arrow-v fc-arrow-v--dashed">⋮</span></div>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="fc-row">
+            <div class="fc-cell">
+              <div class="fc-node fc-node--you">You review</div>
+              <span class="fc-arrow-h fc-arrow-h--left">←</span>
+            </div>
+            <div class="fc-cell">
+              <div class="fc-node fc-node--claude">Opens a pull request<span class="fc-sub">shows you every change</span></div>
+            </div>
+            <div class="fc-cell"></div>
+          </div>
+
+          <!-- Down arrow -->
+          <div class="fc-row fc-row--arrows">
+            <div class="fc-cell"><span class="fc-arrow-v">↓</span></div>
+            <div class="fc-cell"><span class="fc-arrow-v">↓</span></div>
+            <div class="fc-cell"><span class="fc-arrow-v fc-arrow-v--dashed">⋮</span></div>
+          </div>
+
+          <!-- Row 4 — merge -->
+          <div class="fc-row">
+            <div class="fc-cell">
+              <div class="fc-node fc-node--merge">Approve + merge</div>
+              <span class="fc-arrow-h">→</span>
+            </div>
+            <div class="fc-cell">
+              <div class="fc-node fc-node--merge-info">Claude never touches main<span class="fc-sub">you always approve first</span></div>
+              <span class="fc-arrow-h">→</span>
+            </div>
+            <div class="fc-cell">
+              <div class="fc-node fc-node--merge">main updated<span class="fc-sub">Vercel rebuilds</span></div>
+            </div>
+          </div>
         </div>
 
         <p class="alternatives" style="margin-top: 1.5rem;">
@@ -351,6 +392,10 @@ graph TD
           <div class="info-row">
             <span class="info-row__label"><img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=16" alt="Claude" style="vertical-align: middle; margin-right: 6px;">Claude</span>
             <span class="info-row__val"><a href="https://claude.ai/" style="color: var(--accent); text-decoration: none;">claude.ai</a></span>
+          </div>
+          <div class="info-row">
+            <span class="info-row__label"><img src="https://www.google.com/s2/favicons?domain=code.visualstudio.com&sz=16" alt="VS Code" style="vertical-align: middle; margin-right: 6px;">VS Code</span>
+            <span class="info-row__val"><a href="https://code.visualstudio.com/" style="color: var(--accent); text-decoration: none;">code.visualstudio.com</a></span>
           </div>
           <div class="info-row">
             <span class="info-row__label"><img src="https://www.google.com/s2/favicons?domain=github.com&sz=16" alt="GitHub Desktop" style="vertical-align: middle; margin-right: 6px;">GitHub Desktop</span>
