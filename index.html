@@ -8,19 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: 'base',
-      themeVariables: {
-        fontFamily: '"DM Sans", system-ui, sans-serif',
-        fontSize: '14px',
-        lineColor: '#D9D5CE'
-      },
-      flowchart: { curve: 'basis', padding: 12, subGraphTitleMargin: { top: 8, bottom: 4 } }
-    });
-  </script>
 </head>
 <body>
 
@@ -216,42 +203,7 @@
         <h1>Working safely<br>with Claude.</h1>
         <p class="lead">You give Claude a task, come back to a pull request, approve it, and your site updates.</p>
 
-        <pre class="mermaid" style="margin-top: 2.5rem; background: none;">
-graph LR
-    subgraph you ["You"]
-        direction TB
-        A["Give Claude a task"] ~~~ E["You review"]
-        E --> F["Approve + merge"]
-    end
-
-    subgraph claude ["Claude Code Web"]
-        direction TB
-        B["Creates feature branch\ne.g. new-homepage"] --> C["Works in the cloud\nedits files, runs checks"]
-        C --> D["Opens a pull request\nshows you every change"]
-        D ~~~ G["Claude never touches main\nyou always approve first"]
-    end
-
-    subgraph site ["Your live site"]
-        direction TB
-        M["main\nyour live site"] ~~~ H["main updated\nVercel rebuilds"]
-    end
-
-    A --> B
-    D --> E
-    F --> G
-    G --> H
-    M -.-> H
-
-    style A fill:#F0EDE7,stroke:#D9D5CE,color:#1A1918
-    style E fill:#F0EDE7,stroke:#D9D5CE,color:#1A1918
-    style F fill:#E8F5E9,stroke:#81C784,color:#2E7D32,font-weight:600
-    style B fill:#E8E6F8,stroke:#C9C5F0,color:#3B3980
-    style C fill:#E8E6F8,stroke:#C9C5F0,color:#3B3980
-    style D fill:#E8E6F8,stroke:#C9C5F0,color:#3B3980
-    style G fill:#FFF8E1,stroke:#FFE082,color:#6D5D00
-    style H fill:#E8F5E9,stroke:#81C784,color:#2E7D32,font-weight:600
-    style M fill:#F0F7F0,stroke:#8CB88C,color:#3D6B3D
-        </pre>
+        <img src="branches-diagram.svg" alt="Branching workflow: You give Claude a task, Claude creates a feature branch, works in the cloud, opens a pull request, you review and approve, main updates and Vercel rebuilds." style="margin-top: 2.5rem; width: 100%; max-width: 710px;">
 
         <p class="alternatives" style="margin-top: 1.5rem;">
           <span class="alternatives__label">Demo:</span>
