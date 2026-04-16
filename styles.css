@@ -781,6 +781,32 @@ h1 em {
 }
 
 /* ─────────────────────────────────────────
+   Prompt block (Slide 2)
+───────────────────────────────────────── */
+.prompt-block {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', monospace;
+  font-size: 0.78rem;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--text);
+  user-select: text;
+}
+
+.prompt-block strong {
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ─────────────────────────────────────────
    Navigation
 ───────────────────────────────────────── */
 .slide-nav {
