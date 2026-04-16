@@ -783,6 +783,10 @@ h1 em {
 /* ─────────────────────────────────────────
    Prompt block (Slide 2)
 ───────────────────────────────────────── */
+.prompt-wrap {
+  position: relative;
+}
+
 .prompt-block {
   background: var(--code-bg);
   border: 1px solid var(--border);
@@ -795,7 +799,7 @@ h1 em {
   word-break: break-word;
   color: var(--text);
   user-select: text;
-  max-height: calc(100vh - 20rem);
+  max-height: 42vh;
   overflow-y: auto;
 }
 
@@ -806,6 +810,37 @@ h1 em {
   font-size: 0.72rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--box-bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.3rem 0.65rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  user-select: none;
+}
+
+.copy-btn:hover {
+  background: var(--box-alt);
+  color: var(--text);
+}
+
+.copy-btn--copied {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 /* ─────────────────────────────────────────

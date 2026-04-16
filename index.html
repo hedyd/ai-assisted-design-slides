@@ -30,10 +30,15 @@
     <section class="slide">
       <div class="slide-inner slide-inner--wide">
         <span class="tag">02 — System Prompt</span>
-        <h1>Your starting<br>prompt.</h1>
-        <p class="lead">Paste this into Claude Chat before you begin — fill in the brackets, then describe what you want.</p>
+        <h1>Your starting prompt.</h1>
+        <p class="lead">Paste into Claude Chat and upload your resume at the same time.</p>
 
-        <pre class="prompt-block" style="margin-top: 2rem;">I want to build a professional portfolio website using Tailwind CSS and deploy it on GitHub Pages.
+        <div class="prompt-wrap" style="margin-top: 1.5rem;">
+          <button class="copy-btn" id="copy-prompt" aria-label="Copy prompt to clipboard">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+          <pre class="prompt-block" id="prompt-text">I want to build a professional portfolio website using Tailwind CSS and deploy it on GitHub Pages.
 
 Please help me create a complete, single-page portfolio with these sections:
 1. Hero — photo, name, title, and introduction
@@ -62,11 +67,7 @@ Please help me create a complete, single-page portfolio with these sections:
 5. Include GitHub Pages deployment instructions
 
 Let's start! I'm uploading my resume now.</pre>
-
-        <p class="alternatives" style="margin-top: 1.5rem;">
-          <span class="alternatives__label">Tip:</span>
-          Upload your resume and LinkedIn link at the same time as this prompt for the best first draft.
-        </p>
+        </div>
       </div>
     </section>
 
