@@ -47,7 +47,7 @@ body {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   overflow-y: auto;
   opacity: 0;
   pointer-events: none;
@@ -62,8 +62,8 @@ body {
 .slide-inner {
   width: 100%;
   max-width: 820px;
-  padding: var(--slide-pad-y) var(--slide-pad-x);
-  margin: 0 auto;
+  padding: var(--slide-pad-y) var(--slide-pad-x) calc(var(--slide-pad-y) + 4rem);
+  margin: auto;
 }
 
 .slide-inner--wide {
@@ -778,6 +778,69 @@ h1 em {
   align-items: center;
   gap: 0.4rem;
   flex-wrap: wrap;
+}
+
+/* ─────────────────────────────────────────
+   Prompt block (Slide 2)
+───────────────────────────────────────── */
+.prompt-wrap {
+  position: relative;
+}
+
+.prompt-block {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  font-family: 'SFMono-Regular', 'Consolas', 'Liberation Mono', monospace;
+  font-size: 0.78rem;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--text);
+  user-select: text;
+  max-height: 42vh;
+  overflow-y: auto;
+}
+
+.prompt-block strong {
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--box-bg);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.3rem 0.65rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  user-select: none;
+}
+
+.copy-btn:hover {
+  background: var(--box-alt);
+  color: var(--text);
+}
+
+.copy-btn--copied {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 /* ─────────────────────────────────────────

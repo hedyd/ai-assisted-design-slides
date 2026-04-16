@@ -42,4 +42,21 @@
 
   // Init
   goTo(0);
+
+  // Copy prompt to clipboard
+  const copyBtn = document.getElementById('copy-prompt');
+  const promptEl = document.getElementById('prompt-text');
+  if (copyBtn && promptEl) {
+    const originalHTML = copyBtn.innerHTML;
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(promptEl.textContent).then(() => {
+        copyBtn.classList.add('copy-btn--copied');
+        copyBtn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+        setTimeout(() => {
+          copyBtn.classList.remove('copy-btn--copied');
+          copyBtn.innerHTML = originalHTML;
+        }, 2000);
+      });
+    });
+  }
 })();

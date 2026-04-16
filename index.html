@@ -14,9 +14,67 @@
   <div class="deck">
 
     <!-- ─────────────────────────────────────────────
-         Slide 1 — Title
+         Slide 1 — Title (Claude Chat)
     ───────────────────────────────────────────── -->
     <section class="slide active">
+      <div class="slide-inner">
+        <span class="tag">Workshop</span>
+        <h1>Building Your Portfolio<br>with <em>Claude Chat</em></h1>
+        <p class="lead">System prompt · Asset preparation — the two things that make the biggest difference before you start.</p>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────
+         Slide 2 — System Prompt Template
+    ───────────────────────────────────────────── -->
+    <section class="slide">
+      <div class="slide-inner slide-inner--wide">
+        <span class="tag">02 — System Prompt</span>
+        <h1>Your starting prompt.</h1>
+        <p class="lead">Paste into Claude Chat and upload your resume at the same time.</p>
+
+        <div class="prompt-wrap" style="margin-top: 1.5rem;">
+          <button class="copy-btn" id="copy-prompt" aria-label="Copy prompt to clipboard">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+          <pre class="prompt-block" id="prompt-text">I want to build a professional portfolio website using Tailwind CSS and deploy it on GitHub Pages.
+
+Please help me create a complete, single-page portfolio with these sections:
+1. Hero — photo, name, title, and introduction
+2. Skills — list and badges
+3. Projects — summary, responsibilities, key features, and skills learned
+4. Contact — social media links
+
+<strong>Requirements</strong>
+- Clean, modern, responsive design
+- Monochromatic colour palette (suggest options)
+- Single HTML file with embedded CSS
+- Use https://lucide.dev/icons/ for iconography
+- Optimised for GitHub Pages
+
+<strong>I'll upload</strong>
+- Resume (PDF or DOCX)
+- Professional photo
+- Project images
+- LinkedIn profile link
+
+<strong>Please</strong>
+1. Extract information from my resume and LinkedIn page
+2. Build the website structure
+3. Ask me questions to customise the design
+4. Provide a complete ZIP file ready for deployment
+5. Include GitHub Pages deployment instructions
+
+Let's start! I'm uploading my resume now.</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────
+         Slide 3 — Title (Claude Code)
+    ───────────────────────────────────────────── -->
+    <section class="slide">
       <div class="slide-inner">
         <span class="tag">Workshop</span>
         <h1>Building Your Portfolio<br>with <em>Claude Code</em></h1>
