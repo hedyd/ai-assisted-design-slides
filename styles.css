@@ -47,7 +47,7 @@ body {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   overflow-y: auto;
   opacity: 0;
   pointer-events: none;
@@ -62,8 +62,8 @@ body {
 .slide-inner {
   width: 100%;
   max-width: 820px;
-  padding: var(--slide-pad-y) var(--slide-pad-x);
-  margin: 0 auto;
+  padding: var(--slide-pad-y) var(--slide-pad-x) calc(var(--slide-pad-y) + 4rem);
+  margin: auto;
 }
 
 .slide-inner--wide {
@@ -795,6 +795,8 @@ h1 em {
   word-break: break-word;
   color: var(--text);
   user-select: text;
+  max-height: calc(100vh - 20rem);
+  overflow-y: auto;
 }
 
 .prompt-block strong {
